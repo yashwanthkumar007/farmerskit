@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Validated Login Form</title>
+	<link rel="stylesheet" href="style.css">
+        <style>
+            *{
+	padding: 0;
+	margin: 0;
+}
+.bodyr{
+	
+	background-size: cover;
+	align-items: center;
+	justify-content: center;
+	display: flex;
+	font-family: sans-serif;
+}
+.containerr{
+	position: relative;
+	margin-top: 100px;
+	width: 450px;
+	height: auto;
+	background: #88f36e;
+	border-radius: 5px;
+}
+.labelr{
+	padding: 20px 130px;
+	font-size: 35px;
+	font-weight: bold;
+	color: #130f40;
+}
+.login_form{
+	padding: 20px 40px;
+}
+.login_form .fontr{
+	font-size: 18px;
+	color: #130f40;
+	margin: 5px 0;
+}
+.login_form input{
+	height: 40px;
+	width: 350px;
+	padding: 0 5px;
+	font-size: 18px;
+	outline: none;
+	border: 1px solid silver;
+}
+.login_form .font2r{
+	margin-top: 30px;
+}
+.login_form button{
+	margin: 45px 0 30px 0;
+	height: 45px;
+	width: 365px;
+	font-size: 20px;
+	color: white;
+	outline: none;
+	cursor: pointer;
+	font-weight: bold;
+	background: #19f12b;
+	border-radius: 10px;
+	border: 1px solid #39ab48;
+	transition: .5s;
+}
+.login_form button:hover{
+	background: #417702;
+}
+.login_form #email_error,
+.login_form #pass_error{
+	margin-top: 5px;
+	width: 345px;
+	font-size: 18px;
+	color: #C62828;
+	background: rgba(255,0,0,0.1);
+	text-align: center;
+	padding: 5px 8px;
+	border-radius: 3px;
+	border: 1px solid #EF9A9A;
+	display: none;
+} 
+.imager{
+    padding-left: 70px;
+    padding-top: 50px;
+}
+</style>
+</head>
+<body>
+	<div class="navbar nav-cl">
+		<div class="logo">
+		   <img src="images\logo copy.jpg" width="85px">
+		</div>
+	   <nav>
+		   <ul id="menuitems">
+		   <li><a class="active" href="index.html">Home</a></li>
+		   <li><a href="aboutus.html">Aboutus</a></li>
+		   <li><a href="">Contactus</a></li>
+		   <li><a href="reg1.html">Register</a></li>
+		   <li><a href=""><i class="fa fa-cart-arrow-down shop"></i></a></li>
+		   </ul>
+		</nav>
+		<img src="images\menu.png" width="30px" height="30px" class="menu-icon" onclick="menutoggle()">
+	</div>
+	<div class="bodyr">
+	<div class="containerr">
+        <div class="imager"><img src="images\logo copy.jpg" width="280px" height="140px"></div>
+		<h1 class="labelr">User Login</h1>
+		<form class="login_form"name="form" onsubmit="return validated()" action="index.html" method="post">
+			<div class="fontr">Email or Phone</div>
+			<input autocomplete="off" type="text" name="email">
+			<div id="email_error">Please fill up your Email or Phone</div>
+			<div class="fontr font2r">Password</div>
+			<input type="password" name="password">
+			<div id="pass_error">Please fill up your Password</div>
+			<button type="submit" value="login" >login</button>
+		</form>
+	</div>
+</div>	
+	<script>	
+
+var email = document.forms['form']['email'];
+var password = document.forms['form']['password'];
+
+var email_error = document.getElementById('email_error');
+var pass_error = document.getElementById('pass_error');
+
+email.addEventListener('textInput', email_Verify);
+password.addEventListener('textInput', pass_Verify);
+
+function validated(){
+	if (email.value.length < 9) {
+		email.style.border = "1px solid red";
+		email_error.style.display = "block";
+		email.focus();
+		return false;
+	}
+	if (password.value.length < 6) {
+		password.style.border = "1px solid red";
+		pass_error.style.display = "block";
+		password.focus();
+		return false;
+	}
+
+}
+function email_Verify(){
+	if (email.value.length >= 8) {
+		email.style.border = "1px solid silver";
+		email_error.style.display = "none";
+		return true;
+	}
+}
+function pass_Verify(){
+	if (password.value.length >= 5) {
+		password.style.border = "1px solid silver";
+		pass_error.style.display = "none";
+		return true;
+	}
+}
+function myfunction(){
+	window.location.href="index.html"
+}
+</script>
+</body>
+</html>

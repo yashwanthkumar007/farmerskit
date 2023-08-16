@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Payment Page</title>
+  <link rel="stylesheet" type="text/css" href="payment.css">
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,500;1,100;1,700&family=Poppins:ital,wght@0,600;1,300;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <div class="navbar nav-cl">
+    <div class="logo">
+       <img src="images\logo copy.jpg" width="85px">
+    </div>
+   <nav>
+       <ul id="menuitems">
+       <li><a class="active" href="index.html">Home</a></li>
+       <li><a href="aboutus.html">Aboutus</a></li>
+       <li><a href="">Contactus</a></li>
+       <li><a href="reg1.html">Register</a></li>
+       <li><a href=""><i class="fa fa-cart-arrow-down shop"></i></a></li>
+       </ul>
+    </nav>
+    
+</div>
+  <div class="containerp">
+    <h1>Payment Details</h1>
+    <div class="payment-options">
+      <div class="payment-option">
+        <input type="radio" id="cardPayment" name="paymentMethod" checked>
+        <label for="cardPayment">Card Payment</label>
+      </div>
+      <div class="payment-option">
+        <input type="radio" id="upiPayment" name="paymentMethod">
+        <label for="upiPayment">UPI Payment</label>
+      </div>
+    </div>
+    <form id="cardPaymentForm" action="final.html" method="POST">
+      <div class="form-group">
+        <label for="cardNumber">Card Number:</label>
+        <input type="text" id="cardNumber" name="cardNumber" autocomplete="off" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="cardName">Cardholder Name:</label>
+        <input type="text" id="cardName" name="cardName" autocomplete="off" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="expiryDate">Expiry Date:</label>
+        <input type="text" id="expiryDate" name="expiryDate" placeholder="MM/YYYY" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="cvv">CVV:</label>
+        <input type="text" id="cvv" name="cvv" autocomplete="off" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="billingAddress">Billing Address:</label>
+        <textarea id="billingAddress" name="billingAddress" required></textarea>
+      </div>
+      
+      <input type="submit" value="Pay Now" class="btn-submit">
+    </form>
+    
+    <form id="upiPaymentForm" action="final.html" method="POST">
+      <div class="form-group">
+        <label for="upiId">UPI ID:</label>
+        <input type="text" id="upiId" name="upiId" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="upiName">Account Holder Name:</label>
+        <input type="text" id="upiName" name="upiName" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="upiAddress">Billing Address:</label>
+        <textarea id="upiAddress" name="upiAddress" required></textarea>
+      </div>
+      
+      <input type="submit" value="PayNow" class="btn-submit" onclick="myfunction()">
+    </form>
+    <div class="small-containerp">
+        <h1 class="disclaimer">NOTE!</h1>
+        <p class="note">Here by you suggested to pay atleast basic payment for 1hr,the additional payments can be add on in the field</p>
+    </div>
+  </div>
+  
+  <script src="payment.js">
+    function myfunction(){
+	window.location.href="index.html"
+}
+  </script>
+</body>
+</html>
